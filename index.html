@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kharan P - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: #0d1b2a;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        .logo {
+            font-size: 2rem; /* Increased font size */
+            font-weight: bold;
+            color: #00bcff;
+            text-shadow: 0 0 20px rgba(0, 188, 212, 0.7); /* Glowing effect */
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+            border-radius: 5px;
+            position: relative; /* Positioning for pseudo-element */
+        }
+
+        nav ul li a:hover {
+            background: #00bcff;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        nav ul li a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -5px; /* Positioning for underline */
+            height: 4px;
+            background: rgba(0, 188, 212, 0.6); /* Underline color */
+            border-radius: 5px;
+            transform: scaleX(1);
+            transition: transform 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Buttons Styles */
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-button, .resume-button {
+            background: linear-gradient(135deg, #00bcff, #0098b5);
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-button i, .resume-button i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+            transition: transform 0.4s ease;
+        }
+
+        .contact-button:hover, .resume-button:hover {
+            background: linear-gradient(135deg, #0056b3, #0085cc);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .contact-button:hover i, .resume-button:hover i {
+            transform: scale(1.2);
+        }
+
+        .resume-button {
+            background: linear-gradient(135deg, #0056b3, #0085cc);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        .resume-button:hover {
+            background: linear-gradient(135deg, #0056b3, #0085cc);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+        }
+
+        /* Hero Section Styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .slides {
+            display: none;
+            height: 500px;
+            position: relative;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(60%);
+        }
+
+        .active-slide {
+            display: block;
+        }
+
+        .fade-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            width: 80%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .fade-box h2 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px rgba(0, 188, 212, 0.8);
+        }
+
+        /* Explore More Section */
+        .explore-container {
+            margin-top: 50px;
+            padding: 50px;
+            background: linear-gradient(to right, rgba(0, 188, 212, 0.8), rgba(0, 50, 80, 0.8));
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .explore-header {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .explore-icons {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 10%;
+            overflow-x: auto; /* Allow horizontal scrolling */
+        }
+
+        .explore-item {
+            flex-basis: 30%;
+            text-align: center;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            padding: 20px; /* Increased padding for better spacing */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1); /* Background for contrast */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Border for depth */
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.5); /* Shadow effect */
+        }
+
+        .explore-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.7);
+        }
+
+        .explore-item i {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.8);
+        }
+
+        .explore-item h4 {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        footer {
+            background: #0d1b2a;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00bcff;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0098b5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">KHARAN P</div>
+        <nav>
+            <ul>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="internship.html">Internships</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="awards.html">Awards</a></li>
+            </ul>
+        </nav>        
+    </header>
+
+    <!-- Contact Section -->
+    <div class="contact-buttons">
+        <a href="mailto:kbie342@gmail.com" class="contact-button"><i class="fas fa-envelope"></i>E-mail </a>
+        <a href="https://www.linkedin.com/in/kharan-p" target="_blank" class="contact-button"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1JVycRWmO7RnCKOAeRV79KJF5V1sHwFD4/view?usp=drive_link" target="_blank" class="resume-button" title="View Resume">
+            <i class="fas fa-eye"></i> Resume
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="slider-container">
+        <div class="slides active-slide">
+            <img src="https://wallpaperaccess.com/full/2624173.jpg" alt="Welcome Slide">
+            <div class="fade-box">
+                <h2>Welcome to My Portfolio</h2>
+            </div>
+        </div>
+        <div class="slides">
+            <img src="https://wallpaperaccess.com/full/2637581.jpg" alt="About Me Slide">
+            <div class="fade-box">
+                <h2>About Me</h2>
+                <p>A motivated college student with a strong interest in clinical research, seeking to apply foundational knowledge in molecular biology and biotechnology to contribute to healthcare research. Eager to gain experience in clinical trial methodologies, data analysis, and regulatory practices. Passionate about research that improves patient care and outcomes, with a commitment to ethical practices and scientific integrity.</p>
+            </div>
+        </div>
+        <!-- Additional slides can be added here -->
+    </div>
+
+    <!-- Explore More Section -->
+        <h2 class="explore-header">Explore More</h2>
+        <div class="explore-icons">
+            <div class="explore-item" onclick="window.location.href='skills.html'">
+                <i class="fas fa-cogs"></i>
+                <h4>Skills</h4>
+            </div>
+            <div class="explore-item" onclick="window.location.href='experience.html'">
+                <i class="fas fa-briefcase"></i>
+                <h4>Experience</h4>
+            </div>
+            <div class="explore-item" onclick="window.location.href='education.html'">
+                <i class="fas fa-book"></i>
+                <h4>Education</h4>
+            </div>
+            <div class="explore-item" onclick="window.location.href='internship.html'">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Internships</h4>
+            </div>
+            <div class="explore-item" onclick="window.location.href='certifications.html'">
+                <i class="fas fa-certificate"></i>
+                <h4>Certifications</h4>
+            </div>
+            <div class="explore-item" onclick="window.location.href='awards.html'">
+                <i class="fas fa-trophy"></i>
+                <h4>Awards</h4>
+            </div>
+        </div>        
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kharan P. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Slider functionality (Basic version)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slides');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active-slide');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active-slide');
+        }
+
+        // Automatically change slides every 5 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+    </script>
+</body>
+
+</html>

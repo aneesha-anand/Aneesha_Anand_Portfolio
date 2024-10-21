@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Consistent font across pages */
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #141e30, #243b55); /* Black to bluish gradient */
+            color: #ffffff; /* White text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            animation: fadeIn 1s ease; /* Fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px; /* Default width */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2); /* Default thumb color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for neon */
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: rgba(20, 28, 40, 0.7); /* Background track */
+        }
+
+        /* Neon effect on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #00c6ff; /* Neon blue color on hover */
+            box-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff; /* Neon glow effect */
+        }
+
+        .container {
+            max-width: 900px; /* Slightly wider container */
+            width: 100%; /* Full width */
+            background: rgba(30, 39, 50, 0.9); /* Dark transparent box */
+            padding: 30px; /* Increased padding for more space */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            overflow: hidden; /* Clear float */
+            backdrop-filter: blur(10px); /* Blurred background for glassmorphism effect */
+            animation: slideIn 0.5s ease; /* Slide-in animation */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #00c6ff; /* Gradient text color */
+            text-align: center; /* Center the heading */
+            margin-bottom: 20px; /* Space below the heading */
+            font-size: 2.5em; /* Adjusted font size for the heading */
+            font-weight: bold; /* Bold text */
+            text-shadow: 0 0 20px rgba(0, 198, 255, 0.7); /* Glow effect */
+        }
+
+        .award {
+            margin-bottom: 20px; /* Space between award entries */
+            padding: 20px; /* Increased padding for award entries */
+            border-left: 4px solid #00c6ff; /* Left border for emphasis */
+            border-radius: 10px; /* Rounded corners */
+            background: rgba(40, 55, 70, 0.8); /* Light background */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+            animation: fadeIn 0.5s ease; /* Fade-in animation for awards */
+        }
+
+        .award:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 10px 25px rgba(0, 198, 255, 0.4); /* Shadow on hover */
+        }
+
+        .award h3 {
+            color: #00c6ff; /* Color for award titles */
+            margin: 0; /* Remove margin for award title */
+            font-size: 1.5em; /* Increased font size for award title */
+            font-weight: bold; /* Bold font for award title */
+            text-shadow: 0 0 10px rgba(0, 198, 255, 0.5); /* Glow effect */
+        }
+
+        .award p {
+            margin: 5px 0; /* Space above and below paragraphs */
+            color: #ddd; /* Lighter color for award details */
+            line-height: 1.6; /* Improved line height for readability */
+            font-size: 1em; /* Normal font size for award details */
+        }
+
+        .view-certificate {
+            display: inline-block;
+            margin-top: 15px; /* Space above button */
+            padding: 12px 20px; /* Padding for button */
+            background: linear-gradient(45deg, #00c6ff, #0072ff); /* Gradient button background */
+            color: white; /* Button text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners for button */
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Button shadow */
+            font-weight: bold; /* Bold text */
+            font-size: 1em; /* Normal font size for button */
+        }
+
+        .view-certificate:hover {
+            background: linear-gradient(45deg, #0072ff, #00c6ff); /* Reversed gradient on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Shadow on hover */
+        }
+
+        .go-back-button {
+            background: none; /* No background */
+            color: #ffffff; /* Button text color */
+            border: none; /* No border */
+            cursor: pointer;
+            position: absolute; /* Position absolute to top left */
+            top: 20px;
+            left: 20px;
+            font-weight: bold; /* Bold text */
+            font-size: 18px; /* Slightly larger font size */
+            transition: text-shadow 0.3s ease; /* Transition for glow effect */
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+
+        .go-back-button:hover {
+            text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff; /* Glow effect */
+        }
+
+        .arrow {
+            margin-right: 8px; /* Space between arrow and text */
+            transition: transform 0.3s; /* Transition for arrow effect */
+        }
+
+        .go-back-button:hover .arrow {
+            transform: translateX(-3px); /* Arrow animation on hover */
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2em; /* Adjust heading size for smaller screens */
+            }
+
+            .award {
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+        }
+    </style>
+    <script>
+        // Go back to home page functionality
+        function goBack() {
+            window.location.href = 'index.html'; // Change this to your home page URL
+        }
+    </script>
+</head>
+
+<body>
+
+    <button class="go-back-button" onclick="goBack()">
+        <span class="arrow">◀️</span> Go Back
+    </button>
+
+    <div class="container">
+        <h2>Awards</h2>
+
+        <div class="award">
+            <h3><span>Proficiency Award</span></h3>
+            <p><strong>Received on:</strong> 2022 - 2023 Academic Year</p>
+            <p>Awarded for outstanding proficiency in Biotechnology during the 1st year of undergraduate studies.</p>
+            <a href="https://drive.google.com/file/d/1JCpWa9ZOZ4rg-GSFo1MUh1Gsv75la8ld/view?usp=drive_link" class="view-certificate" target="_blank">View Certificate</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Modern font */
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #141e30, #243b55); /* Black to bluish gradient */
+            color: #ffffff; /* White text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            animation: fadeIn 1s ease; /* Fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px; /* Default width */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2); /* Default thumb color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for neon */
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: rgba(20, 28, 40, 0.7); /* Background track */
+        }
+
+        /* Neon effect on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #00c6ff; /* Neon blue color on hover */
+            box-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff; /* Neon glow effect */
+        }
+
+        .container {
+            max-width: 900px; /* Slightly wider container */
+            width: 100%; /* Full width */
+            background: rgba(30, 39, 50, 0.9); /* Dark transparent box */
+            padding: 30px; /* Increased padding for more space */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            overflow: hidden; /* Clear float */
+            backdrop-filter: blur(10px); /* Blurred background for glassmorphism effect */
+        }
+
+        h2 {
+            color: #00c6ff; /* Gradient text color */
+            text-align: center; /* Center the heading */
+            margin-bottom: 20px; /* Space below the heading */
+            font-size: 2.5em; /* Adjusted font size for the heading */
+            font-weight: bold; /* Bold text */
+            text-shadow: 0 0 20px rgba(0, 198, 255, 0.7); /* Glow effect */
+        }
+
+        .certification {
+            margin-bottom: 20px; /* Space between certification entries */
+            padding: 20px; /* Increased padding for certification entries */
+            border-left: 4px solid #00c6ff; /* Left border for emphasis */
+            border-radius: 10px; /* Rounded corners */
+            background: rgba(40, 55, 70, 0.8); /* Light background */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+            animation: fadeIn 0.5s ease; /* Fade-in animation for certifications */
+        }
+
+        .certification:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 10px 25px rgba(0, 198, 255, 0.4); /* Shadow on hover */
+        }
+
+        .certification h3 {
+            color: #00c6ff; /* Color for certification titles */
+            margin: 0; /* Remove margin for certification title */
+            font-size: 1.5em; /* Increased font size for certification title */
+            font-weight: bold; /* Bold font for certification title */
+            text-shadow: 0 0 10px rgba(0, 198, 255, 0.5); /* Glow effect */
+        }
+
+        .certification p {
+            margin: 5px 0; /* Space above and below paragraphs */
+            color: #ddd; /* Lighter color for certification details */
+            line-height: 1.6; /* Improved line height for readability */
+            font-size: 1em; /* Normal font size for certification details */
+        }
+
+        .description {
+            margin: 5px 0 15px; /* Space for description */
+            color: #f0f0f0; /* Description text color */
+            font-size: 0.9em; /* Normal font size for description */
+        }
+
+        .view-certificate-button {
+            display: inline-block;
+            margin-top: 15px; /* Space above button */
+            padding: 12px 20px; /* Padding for button */
+            background: linear-gradient(45deg, #00c6ff, #0072ff); /* Gradient button background */
+            color: white; /* Button text color */
+            text-decoration: none; /* No underline */
+            border-radius: 5px; /* Rounded corners for button */
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Button shadow */
+            font-weight: bold; /* Bold text */
+            font-size: 1em; /* Normal font size for button */
+        }
+
+        .view-certificate-button:hover {
+            background: linear-gradient(45deg, #0072ff, #00c6ff); /* Reversed gradient on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Shadow on hover */
+        }
+
+        .go-back-button {
+            background: none; /* No background */
+            color: #ffffff; /* Button text color */
+            border: none; /* No border */
+            cursor: pointer;
+            position: absolute; /* Position absolute to top left */
+            top: 20px;
+            left: 20px;
+            font-weight: bold; /* Bold text */
+            font-size: 18px; /* Slightly larger font size */
+            transition: text-shadow 0.3s ease; /* Transition for glow effect */
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+
+        .go-back-button:hover {
+            text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff; /* Glow effect */
+        }
+
+        .arrow {
+            margin-right: 8px; /* Space between arrow and text */
+            transition: transform 0.3s; /* Transition for arrow effect */
+        }
+
+        .go-back-button:hover .arrow {
+            transform: translateX(-3px); /* Arrow animation on hover */
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2em; /* Adjust heading size for smaller screens */
+            }
+
+            .certification {
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+        }
+    </style>
+    <script>
+        // Go back to home page functionality
+        function goBack() {
+            window.location.href = 'index.html'; // Change this to your home page URL
+        }
+    </script>
+</head>
+
+<body>
+
+    <button class="go-back-button" onclick="goBack()">
+        <span class="arrow">◀️</span> Go Back
+    </button>
+
+    <div class="container">
+        <h2>Certifications</h2>
+
+        <div class="certification">
+            <h3>Basic Course in Biomedical Research</h3>
+            <p><strong>Issued By:</strong> ICMR - NIE & NPTEL – SWAYAM</p>
+            <p><strong>Issued On:</strong> July 2024</p>
+            <p class="description">A foundational course covering principles of biomedical research, emphasizing ethical practices and methodologies.</p>
+            <a class="view-certificate-button" href="https://drive.google.com/file/d/1JR21yGoR77ZcfkhMwMaLwvMm5nLUorfx/view?usp=drive_link" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="certification">
+            <h3>Bio Innovation & Bio Entrepreneurship</h3>
+            <p><strong>Issued By:</strong> Department of Biotechnology, Dwaraka Doss Goverdhan Doss Vaishnav College, Chennai & Nalla Unavu, Chennai</p>
+            <p><strong>Issued On:</strong> March 2023</p>
+            <p class="description">Focuses on innovations in biotechnology and entrepreneurship strategies to translate scientific research into viable business solutions.</p>
+            <a class="view-certificate-button" href="https://drive.google.com/file/d/1JI2UAFaW49az_bg89REIqDXWXvNepWrr/view?usp=drive_link" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="certification">
+            <h3>Biobased Algal Products</h3>
+            <p><strong>Issued By:</strong> Department of Biotechnology, Dwaraka Doss Goverdhan Doss Vaishnav College, Chennai & Mahathi Biotech, Chennai</p>
+            <p><strong>Issued On:</strong> February 2023</p>
+            <p class="description">Explores the applications of algal products in various industries, emphasizing sustainability and innovation.</p>
+            <a class="view-certificate-button" href="https://drive.google.com/file/d/1JLI6cgvK1Kai2v8lpdj7IaUGy-eGY9EK/view?usp=drive_link" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="certification">
+            <h3>Advanced Workshop and Hands-on Training on FTIR</h3>
+            <p><strong>Issued By:</strong> Vellore Institute of Technology</p>
+            <p><strong>Issued On:</strong> September 2024</p>
+            <p class="description">Provides practical experience in Fourier-transform infrared spectroscopy, covering both theory and application in research.</p>
+            <a class="view-certificate-button" href="https://drive.google.com/file/d/1JN-35jYK2ylbuVRv2elBsADLnusDlNGg/view?usp=drive_link" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="certification">
+            <h3>Reviving Innovation and Student Entrepreneurship (Lecture Workshop)</h3>
+            <p><strong>Issued By:</strong> Department of Microbiology, Dwaraka Doss Goverdhan Doss Vaishnav College, Chennai & TANUVAS</p>
+            <p><strong>Issued On:</strong> September 2024</p>
+            <p class="description">Encourages student-led innovation and entrepreneurship through lectures and workshops by industry leaders.</p>
+            <a class="view-certificate-button" href="https://drive.google.com/file/d/1JQVr7S6GUHhLPcILOrHfzdiVIRvVu5wM/view?usp=drive_link" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="certification">
+            <h3>Introduction to Good Manufacturing Practices</h3>
+            <p><strong>Issued By:</strong> Pharmuni</p>
+            <p><strong>Issued On:</strong> October 2024</p>
+            <p class="description">Covers essential good manufacturing practices in the pharmaceutical industry to ensure product quality and safety.</p>
+            <a class="view-certificate-button" href="https://drive.google.com/file/d/1JRKI9xyERuExDYcsKra-nXPHNLoKu0Ya/view?usp=drive_link" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="certification">
+            <h3>Mastering the Basics: A Theoretical Exploration of Molecular Docking</h3>
+            <p><strong>Issued By:</strong> Aspire Tech Park</p>
+            <p><strong>Issued On:</strong> August 2024</p>
+            <p class="description">Explains the theoretical foundations of molecular docking, a vital tool in drug discovery and design.</p>
+            <a class="view-certificate-button" href="https://drive.google.com/file/d/1JWs0d64ogV_flMQOaTPpaUuWeaW1QrBU/view?usp=drive_link" target="_blank">View Certificate</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

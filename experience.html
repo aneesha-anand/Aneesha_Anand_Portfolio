@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, #141e30, #243b55); /* Dark gradient background */
+            color: #ffffff; /* White text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .container {
+            max-width: 800px; /* Container width */
+            width: 100%; /* Full width */
+            background: rgba(20, 28, 40, 0.9); /* Dark transparent box */
+            padding: 30px; /* Padding for the container */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            overflow: hidden; /* Clear float */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for container */
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px #00f2fe;
+        }
+
+        h2 {
+            color: #00c6ff; /* Gradient text color */
+            text-align: center; /* Center the heading */
+            margin-bottom: 30px; /* Space below the heading */
+            font-size: 2.5em; /* Heading font size */
+            font-weight: bold; /* Bold text */
+            text-shadow: 0 0 15px rgba(0, 198, 255, 0.7); /* Glow effect */
+        }
+
+        .job {
+            margin-bottom: 25px; /* Space between job entries */
+            padding: 20px; /* Padding for job entries */
+            border-left: 4px solid #0072ff; /* Left border for emphasis */
+            border-radius: 10px; /* Rounded corners */
+            background: rgba(40, 55, 70, 0.85); /* Light background */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+        }
+
+        .job:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Shadow on hover */
+        }
+
+        .job h3 {
+            color: #00c6ff; /* Color for job titles */
+            margin: 0; /* Remove margin for job title */
+            font-size: 1.5em; /* Font size for job title */
+            font-weight: bold; /* Bold font for job title */
+            text-shadow: 0 0 10px rgba(0, 198, 255, 0.5); /* Glow effect */
+        }
+
+        .job p {
+            margin: 5px 0; /* Space above and below paragraphs */
+            color: #ddd; /* Lighter color for job details */
+            line-height: 1.5; /* Improved line height for readability */
+            font-size: 1em; /* Font size for job details */
+        }
+
+        .job span {
+            font-weight: bold; /* Bold for roles and companies */
+            color: #00c6ff; /* Color for roles and companies */
+        }
+
+        .go-back-button {
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            color: #00f2fe; /* Bright text color */
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Border to match the design */
+            cursor: pointer;
+            position: absolute; /* Position absolute to top left */
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px; /* Padding for button */
+            border-radius: 5px; /* Rounded corners */
+            font-weight: bold; /* Bold text */
+            font-size: 16px; /* Button font size */
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Transition effects */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Box shadow */
+            display: flex; /* Flexbox for alignment */
+            align-items: center; /* Centering icon and text */
+            outline: none; /* Remove outline */
+        }
+
+        .go-back-button:hover {
+            background: rgba(0, 198, 255, 0.2); /* Change background on hover */
+            transform: scale(1.05) translateY(-2px); /* Lift effect */
+            box-shadow: 0 8px 20px rgba(0, 198, 255, 0.5); /* Stronger shadow on hover */
+        }
+
+        .arrow {
+            margin-right: 8px; /* Space between arrow and text */
+            transition: transform 0.3s, color 0.3s; /* Transition for arrow effect */
+            font-size: 22px; /* Font size for the icon */
+            color: #00f2fe; /* Neon color */
+            text-shadow: 0 0 10px #00f2fe, 0 0 20px #0072ff; /* Neon glow effect */
+        }
+
+        .go-back-button:hover .arrow {
+            color: #00c6ff; /* Change icon color on button hover */
+            transform: translateX(-2px); /* Slightly move the icon */
+        }
+
+        /* Enhanced neon scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 12px; /* Slightly wider for better usability */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3); /* Slightly more visible thumb color */
+            border-radius: 6px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for neon */
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: rgba(20, 28, 40, 0.7); /* Background track */
+        }
+
+        /* Neon effect on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #00c6ff; /* Neon blue color on hover */
+            box-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff; /* Neon glow effect */
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2em; /* Adjust heading size for smaller screens */
+            }
+
+            .job {
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+
+            .go-back-button {
+                padding: 8px 16px; /* Adjust padding for mobile */
+            }
+        }
+    </style>
+    <script>
+        // Go back to home page functionality
+        function goBack() {
+            window.location.href = 'index.html'; // Change this to your home page URL
+        }
+    </script>
+</head>
+
+<body>
+
+    <button class="go-back-button" onclick="goBack()">
+        <span class="arrow">◀️</span> Go Back
+    </button>
+
+    <div class="container">
+        <h2>Experience</h2>
+
+        <div class="job">
+            <h3><span>Secretary</span> - Technosaviour Club, Dwaraka Doss Goverdhan Doss Vaishnav College</h3>
+            <p><strong>Location:</strong> Chennai</p>
+            <p><strong>Duration:</strong> August 2024 - Present</p>
+            <p>Coordinated club activities and managed communications.</p>
+        </div>
+
+        <div class="job">
+            <h3><span>Assistant Blood Secretary</span> - NSS, Dwaraka Doss Goverdhan Doss Vaishnav College</h3>
+            <p><strong>Location:</strong> Chennai</p>
+            <p><strong>Duration:</strong> January 2024 - Present</p>
+            <p>Assisted in organizing blood donation drives and campaigns.</p>
+        </div>
+
+        <div class="job">
+            <h3><span>Volunteer</span> - Bhumi (NGO)</h3>
+            <p><strong>Location:</strong> Chennai</p>
+            <p><strong>Duration:</strong> September 2023 - Present</p>
+            <p>Contributed to community service initiatives and educational programs.</p>
+        </div>
+
+        <div class="job">
+            <h3><span>Joint Secretary</span> - Technosaviour Club, Dwaraka Doss Goverdhan Doss Vaishnav College</h3>
+            <p><strong>Location:</strong> Chennai</p>
+            <p><strong>Duration:</strong> July 2023 - April 2024</p>
+            <p>Supported club activities and team efforts.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

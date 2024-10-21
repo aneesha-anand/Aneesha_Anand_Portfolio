@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Consistent font across pages */
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, #0b0c1f, #2b3a67); /* Dark gradient */
+            color: #ffffff; /* White text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            position: relative; /* Position for the button */
+            overflow-y: auto; /* Enable vertical scrolling */
+            animation: fadeIn 1s ease; /* Fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1); /* Track color */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00c6ff; /* Scrollbar color */
+            border-radius: 10px; /* Round scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0072ff; /* Color on hover */
+        }
+
+        .container {
+            max-width: 800px; /* Increased max width for better focus */
+            width: 100%; /* Full width */
+            background: rgba(20, 28, 40, 0.85); /* Slightly more transparent box */
+            padding: 40px; /* Neater padding */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* Enhanced shadow effect */
+            overflow: hidden; /* Clear float */
+            animation: slideIn 0.5s ease; /* Slide-in animation */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #00c6ff; /* Gradient text color */
+            text-align: center; /* Center the heading */
+            margin-bottom: 30px; /* Increased space below the heading */
+            font-size: 2.5em; /* Larger font size for the heading */
+            font-weight: bold; /* Bold text */
+            text-shadow: 0 0 15px rgba(0, 198, 255, 0.7), 0 0 30px rgba(0, 198, 255, 0.5); /* Neon glow effect */
+        }
+
+        .internship {
+            margin-bottom: 25px; /* More space between internship entries */
+            padding: 20px; /* Enhanced padding for internship entries */
+            border-left: 6px solid #0072ff; /* Thicker left border for emphasis */
+            border-radius: 8px; /* Rounded corners */
+            background: rgba(40, 55, 70, 0.85); /* Darker background */
+            transition: transform 0.4s, box-shadow 0.4s; /* Smoother transition for hover effect */
+            animation: fadeIn 0.5s ease; /* Fade-in animation for internship */
+        }
+
+        .internship:hover {
+            transform: translateY(-5px); /* More lift effect on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+        }
+
+        .internship h3 {
+            color: #00c6ff; /* Color for internship titles */
+            margin: 0; /* Remove margin for internship title */
+            font-size: 1.5em; /* Larger font size for internship title */
+            font-weight: bold; /* Bold font for internship title */
+            text-shadow: 0 0 10px rgba(0, 198, 255, 0.5), 0 0 20px rgba(0, 198, 255, 0.3); /* Neon glow effect */
+        }
+
+        .internship p {
+            margin: 5px 0; /* Space above and below paragraphs */
+            color: #ddd; /* Lighter color for internship details */
+            line-height: 1.5; /* Improved line height for readability */
+            font-size: 1em; /* Slightly larger font size for internship details */
+        }
+
+        .key-takeaways {
+            margin-top: 20px;
+            line-height: 1.6; /* Improved line height for key takeaways */
+        }
+
+        .view-certificate {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .view-certificate a {
+            display: inline-block; /* Inline-block for button styling */
+            background-color: #0072ff;
+            color: white;
+            padding: 15px 25px; /* More padding for button */
+            text-decoration: none;
+            border-radius: 30px; /* Enhanced rounded button */
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease; /* Transition effects */
+            font-size: 1em; /* Consistent button font size */
+            text-shadow: 0 0 5px #00c6ff, 0 0 10px #00c6ff; /* Neon glow effect on button text */
+        }
+
+        .view-certificate a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px); /* Lift effect on hover */
+            text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff; /* Enhanced neon glow on hover */
+        }
+
+        .go-back-button {
+            background: none; /* No background */
+            color: white; /* White text */
+            border: none; /* No border */
+            cursor: pointer;
+            position: absolute; /* Position absolute to top left */
+            top: 20px;
+            left: 20px;
+            font-weight: bold; /* Bold text */
+            font-size: 16px; /* Font size */
+            transition: text-shadow 0.3s ease; /* Transition for glow effect */
+            text-shadow: 0 0 5px #00c6ff, 0 0 10px #00c6ff; /* Neon glow effect */
+        }
+
+        .go-back-button:hover {
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #0072ff; /* Glow effect */
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px; /* Reduce padding on smaller screens */
+            }
+
+            h2 {
+                font-size: 2em; /* Adjust heading size for smaller screens */
+            }
+
+            .internship h3 {
+                font-size: 1.4em; /* Adjust title size for smaller screens */
+            }
+        }
+    </style>
+    <script>
+        // Go back to home page functionality
+        function goBack() {
+            window.location.href = 'index.html'; // Change this to your home page URL
+        }
+    </script>
+</head>
+
+<body>
+
+    <button class="go-back-button" onclick="goBack()">
+        <span class="go-back-arrow">◀️</span> Go Back
+    </button>
+
+    <div class="container">
+        <h2>Internship</h2>
+
+        <div class="internship">
+            <h3>Bafna Pharmaceuticals</h3>
+            <p><strong>Role:</strong> Intern</p>
+            <p><strong>Duration:</strong> November 2024</p>
+            <div class="key-takeaways">
+                <strong>Key Takeaways:</strong>
+                <ul>
+                    <li>Gained hands-on experience in pharmaceutical formulations.</li>
+                    <li>Learned about quality control processes.</li>
+                    <li>Enhanced skills in laboratory techniques.</li>
+                </ul>
+            </div>
+            <div class="view-certificate">
+                <strong><a href="https://drive.google.com/file/d/1JH_rc3GU4TssJaRn6mm5eQLqMT8JHsTz/view?usp=drive_link" target="_blank">View Certificate</a></strong>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
