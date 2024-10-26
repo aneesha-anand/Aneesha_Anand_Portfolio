@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kharan P - Portfolio</title>
+    <title>Kharan P</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -271,6 +272,122 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #0098b5;
         }
+
+            /* Mobile Styles */
+    @media (max-width: 768px) {
+        header {
+            padding: 15px 30px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul li a {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .contact-buttons {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-button, .resume-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        .slider-container {
+            margin: 20px auto;
+            height: auto;
+        }
+
+        .slides {
+            height: 300px;
+        }
+
+        .fade-box h2 {
+            font-size: 2rem;
+        }
+
+        .explore-container {
+            padding: 30px;
+        }
+
+        .explore-header {
+            font-size: 2rem;
+        }
+
+        .explore-icons {
+            flex-direction: column;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .explore-item {
+            flex-basis: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header {
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+        }
+
+        nav ul li a {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+
+        .contact-button, .resume-button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .slider-container {
+            height: 200px;
+        }
+
+        .slides {
+            height: 200px;
+        }
+
+        .fade-box h2 {
+            font-size: 1.5rem;
+        }
+
+        .explore-header {
+            font-size: 1.5rem;
+        }
+
+        .explore-item h4 {
+            font-size: 1.2rem;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+        }
+    }
     </style>
 </head>
 
