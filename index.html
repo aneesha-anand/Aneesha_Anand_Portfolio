@@ -472,16 +472,22 @@
         const slides = document.querySelectorAll('.slides');
 
         function showSlide(index) {
-            slides[currentSlide].classList.remove('active-slide');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active-slide');
-        }
+            slides.forEach((slide, i) => {
+            slide.classList.remove('active-slide');
+            if (i === index) {
+                slide.classList.add('active-slide');
+            }
+        });
+    }
 
-        // Automatically change slides every 5 seconds
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-    </script>
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length; // Cycle through slides
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 6000); // Change slide every 6 seconds
+</script>
+
 </body>
 
 </html>
