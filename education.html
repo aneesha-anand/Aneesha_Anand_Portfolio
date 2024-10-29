@@ -162,22 +162,39 @@
         }
 
         .go-back-button {
-            background: none;
-            color: #ffffff;
-            border: none;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Border to match the design */
             cursor: pointer;
             position: absolute;
             top: 20px;
             left: 20px;
             font-weight: bold;
-            font-size: 16px;
-            transition: text-shadow 0.3s ease;
-            display: flex;
-            align-items: center;
+            font-size: 20px;
+            padding: 12px 30px; /* Increased padding for better click area */
+            border-radius: 5px; /* Rounded corners */
+            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Added filter transition */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex; /* Flexbox for alignment */
+            align-items: center; /* Centering icon and text */
+            outline: none; /* Remove outline */
+            text-shadow: 0 0 10px #00f2fe, 0 0 20px #0072ff; /* Neon glow effect */
+        }
+
+        .go-back-button i {
+            margin-right: 8px; /* Spacing between icon and text */
+            font-size: 22px; /* Icon size */
+            transition: transform 0.3s, color 0.3s; /* Smooth icon animation */
+            text-shadow: 0 0 10px #00f2fe, 0 0 20px #0072ff; /* Neon glow effect on icon */
         }
 
         .go-back-button:hover {
-            text-shadow: 0 0 10px #ffffff, 0 0 20px #0072ff;
+            transform: scale(1.05) translateY(-2px); /* Lift effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+        }
+
+        .go-back-button:hover i {
+            transform: rotate(-20deg); /* Rotate the icon on hover */
         }
 
         .arrow {
@@ -228,7 +245,7 @@
 <body>
 
     <button class="go-back-button" onclick="goBack()">
-        <span class="arrow">◀️</span> Go Back
+        <i class="fas fa-arrow-left"></i> Go Back
     </button>
 
     <div class="container">
