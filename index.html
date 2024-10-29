@@ -467,12 +467,12 @@
     </footer>
 
     <script>
-        // Slider functionality (Basic version)
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slides');
+    // Slider functionality (Modified for 2 slides with different timings)
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides');
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
             slide.classList.remove('active-slide');
             if (i === index) {
                 slide.classList.add('active-slide');
@@ -485,7 +485,21 @@
         showSlide(currentSlide);
     }
 
-    setInterval(nextSlide, 6000); // Change slide every 6 seconds
+    function startSlider() {
+        showSlide(currentSlide); // Show the first slide immediately
+
+        // Set timing for the first slide
+        setTimeout(() => {
+            nextSlide(); // Move to the second slide
+            // Set timing for the second slide
+            setTimeout(() => {
+                nextSlide(); // Go back to the first slide (if you want to loop)
+                startSlider(); // Restart the slider
+            }, 10000); // 10 seconds for the second slide
+        }, 3000); // 3 seconds for the first slide
+    }
+
+    startSlider(); // Initialize the slider
 </script>
 
 </body>
